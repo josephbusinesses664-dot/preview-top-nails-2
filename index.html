@@ -135,10 +135,14 @@ img{display:block;max-width:100%}
 .navlinks .btn:hover{color:#fff}
 @media(max-width:760px){.navlinks a.navlink{display:none}}
 
-/* hero — mesh gradient (no photos provided) */
+/* hero */
 .hero{position:relative;overflow:hidden}
 .hero__bg{position:absolute;inset:-10% 0;z-index:0}
-.hero .wrap{position:relative;z-index:2;padding-top:clamp(80px,13vw,150px);padding-bottom:clamp(80px,13vw,150px)}
+.hero .wrap{position:relative;z-index:2;padding-top:clamp(80px,13vw,150px);padding-bottom:clamp(80px,13vw,150px);
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:center}
+.hero__photo{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-2);aspect-ratio:4/5}
+.hero__photo img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.hero__photo{display:none}}
 .hero h1{font-weight:900;font-size:clamp(2.4rem,7vw,5rem);max-width:15ch;color:var(--ink)}
 .hero__sub{color:var(--ink2);font-size:1.2rem;max-width:54ch;margin-bottom:1.6rem}
 .hero__meta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-bottom:2rem}
@@ -161,14 +165,15 @@ img{display:block;max-width:100%}
 .card .ic svg{width:27px;height:27px}
 .card p{color:var(--ink2);margin:0;font-size:.98rem}
 
-/* showcase — mesh tiles standing in for photos */
+/* showcase */
 .showcase{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:14px}
 .tile{aspect-ratio:4/5;border-radius:var(--radius-lg);box-shadow:var(--shadow-1);position:relative;
   display:flex;align-items:flex-end;padding:22px;overflow:hidden}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .tile span{position:relative;z-index:2;font-family:var(--font-d);font-weight:600;color:#fff;
   font-size:1.1rem;text-shadow:0 1px 12px rgba(0,0,0,.35)}
 .tile::before{content:"";position:absolute;inset:0;z-index:1;
-  background:linear-gradient(to top,rgba(40,15,30,.55),transparent 60%)}
+  background:linear-gradient(to top,rgba(40,15,30,.65),transparent 60%)}
 
 /* about */
 .about{background:var(--accent-d);color:#fff}
@@ -314,6 +319,7 @@ img{display:block;max-width:100%}
 <section class="hero">
   <div class="hero__bg fx-mesh" data-fx="parallax" data-speed="0.08" aria-hidden="true"></div>
   <div class="wrap">
+    <div>
     <p class="eyebrow">Nail Salon &middot; Stockton, CA</p>
     <h1 data-anim="lines">Beautiful nails,<br>made for you</h1>
     <p class="hero__sub">Relaxing manicures, pedicures, gel &amp; acrylics, and custom nail art — done with care at Top Nails on E Harding Way.</p>
@@ -337,6 +343,10 @@ img{display:block;max-width:100%}
         (209) 932-0935
       </a>
       <a class="btn btn-ghost fx-mag" href="#services">View services</a>
+    </div>
+    </div>
+    <div class="hero__photo">
+      <img src="https://s3-media0.fl.yelpcdn.com/bphoto/jymSt_2jB4Rf5p-cMELtbA/o.jpg" alt="Top Nails Stockton nail work" loading="eager">
     </div>
   </div>
 </section>
@@ -402,18 +412,18 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- SHOWCASE (mesh tiles — no client photos yet) -->
+<!-- SHOWCASE -->
 <section class="section" id="looks" style="background:var(--bg2)">
   <div class="wrap">
     <p class="eyebrow" data-anim="rise">The Top Nails look</p>
     <h2 data-anim="rise">Polished, every time</h2>
     <div class="showcase" data-anim="stagger">
-      <div class="tile fx-mesh"><span>Classic French</span></div>
-      <div class="tile fx-mesh"><span>Bold Gel Color</span></div>
-      <div class="tile fx-mesh"><span>Custom Nail Art</span></div>
-      <div class="tile fx-mesh"><span>Spa Pedicure</span></div>
+      <div class="tile"><img src="https://s3-media0.fl.yelpcdn.com/bphoto/jymSt_2jB4Rf5p-cMELtbA/o.jpg" alt="Nail work at Top Nails Stockton" loading="lazy"><span>Classic French</span></div>
+      <div class="tile"><img src="https://s3-media0.fl.yelpcdn.com/bphoto/ERXO4ShK-6HzZsLVuGnbmQ/o.jpg" alt="Gel color nails" loading="lazy"><span>Bold Gel Color</span></div>
+      <div class="tile"><img src="https://s3-media0.fl.yelpcdn.com/bphoto/HAnMyrX8VrxAHiSwd4pn8Q/o.jpg" alt="Custom nail art" loading="lazy"><span>Custom Nail Art</span></div>
+      <div class="tile"><img src="https://s.yimg.com/bj/4c90/4c902807194a57c040212e78607325ba.jpg" alt="Spa pedicure at Top Nails" loading="lazy"><span>Spa Pedicure</span></div>
     </div>
-    <p data-anim="rise" style="color:var(--ink2);margin-top:20px;font-size:.95rem">Follow us in-store to see the latest sets from our technicians.</p>
+    <p data-anim="rise" style="color:var(--ink2);margin-top:20px;font-size:.95rem">Visit us at 30 E Harding Way to see the latest from our technicians.</p>
   </div>
 </section>
 
